@@ -1,0 +1,51 @@
+trail_name,user,region,park,province,country,latitude,longitude,start_date,end_date,distance,elevation_gain,max_temp,min_temp,rain,snow,summer_temp,winter_temp,annual_rain,annual_snow,forest,lake,river,waterfall,beach,historic_site,cave,hot_spring,difficulty,enjoyment,route_type,route,num_reviews,backpacking,nights,days,order
+Grand Canyon,Hiker_01,Grand Canyon,Grand Canyon,Arizona,USA,36.053,-112.084,2009-05-22,2009-05-23,27.1,1510,17.1,9.0,27.9,0.0,32.3,-14.2,254.0,56.8,0,0,1,0,0,0,0,0,7,5,point to point,,1,1,1,2,1
+Field Trip Failure,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.573,-78.525,2012-06-16,2012-06-17,10.0,140,26.8,16.8,0.0,0.0,28.4,-23.8,729.6,197.2,1,1,1,1,1,0,0,0,1,1,out and back,,1,1,1,2,2
+Geothermals,Hiker_01,Myvatn,Myvatn,Iceland,Iceland,65.64,-16.915,2018-08-02,2018-08-03,30.5,580,15.2,8.5,1.5,0.0,17.9,-15.7,414.3,414.2,0,1,0,0,0,0,1,1,5,4,loop,,1,1,1,2,3
+Kepler Track,Hiker_01,Te Anau,Fiordland,South Island,New Zealand,-45.492,167.664,2019-11-28,2019-11-30,55.0,1780,19.8,7.1,0.5,0.0,22.0,-1.9,1320.6,40.1,1,1,1,1,1,0,1,0,7,5,point to point,,1,1,2,3,4
+Grotto Meteors,Hiker_01,North Shore,Bruce Peninsula,Ontario,Canada,45.191,-81.42,2020-10-20,2020-10-22,39.4,320,11.4,5.9,12.0,0.1,24.2,-15.8,761.8,177.7,1,1,0,0,0,0,1,0,3,5,out and back,,1,1,2,3,5
+Hypothermia Party,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.463,-78.798,2021-10-15,2021-10-17,32.6,530,20.4,6.1,24.4,0.0,28.2,-23.2,774.9,200.5,1,1,1,0,0,0,0,0,5,1,loop,,1,1,2,3,6
+Lake Faya,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.573,-78.525,2021-10-22,2021-10-24,25.0,400,7.0,1.2,0.0,0.0,28.4,-23.8,729.6,197.2,1,1,1,1,0,0,0,0,3,2,loop,,1,1,2,3,7
+Minnesing,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.556,-78.603,2022-03-26,2022-03-27,17.5,180,4.5,-12.6,0.4,2.0,28.1,-23.4,729.6,197.2,1,1,0,0,0,0,0,0,7,2,loop,,1,1,1,2,8
+First Frontenac,Hiker_01,Frontenac,Frontenac,Ontario,Canada,44.577,-76.522,2022-05-06,2022-05-08,42.3,350,15.6,3.6,0.0,0.0,30.5,-19.9,865.4,127.8,1,1,0,0,0,1,0,0,3,4,loop,,1,1,2,3,9
+Bad Echo,Hiker_01,Bon Echo,Bon Echo,Ontario,Canada,44.902,-77.246,2022-05-13,2022-05-15,14.0,140,27.4,12.1,1.0,0.0,30.1,-21.7,750.6,158.3,1,1,0,0,0,0,0,0,1,2,loop,,1,1,2,3,10
+Witchy Waterslide,Hiker_01,Achray,Algonquin,Ontario,Canada,45.867,-77.757,2022-07-21,2022-07-23,18.7,190,27.6,16.8,2.5,0.0,30.7,-23.5,682.3,175.3,1,1,1,1,0,0,0,0,3,3,loop,,1,1,2,3,11
+Charleston Lake,Hiker_01,Charleston Lake,Charleston Lake,Ontario,Canada,44.504,-76.038,2022-08-13,2022-08-14,11.7,120,25.1,15.7,0.0,0.0,30.1,-18.7,885.5,126.4,1,1,0,0,1,0,0,0,1,3,loop,,1,1,1,2,12
+Hawk Ridge,Hiker_01,Halfway Lake,Halfway Lake,Ontario,Canada,46.906,-81.635,2022-09-03,2022-09-04,17.2,190,19.3,7.9,0.0,0.0,28.1,-26.0,616.8,171.7,1,1,0,0,1,0,0,0,3,3,loop,,1,1,1,2,13
+Pukaskwa Loop,Hiker_01,Pukaskwa,Pukaskwa,Ontario,Canada,48.591,-86.29,2022-09-06,2022-09-07,29.8,400,19.5,12.3,0.6,0.0,23.1,-24.4,598.4,174.7,1,1,1,1,1,0,0,0,5,5,loop,,1,1,1,2,14
+Sleeping Giant,Hiker_01,Sleeping Giant,Sleeping Giant,Ontario,Canada,48.34,-88.822,2022-09-08,2022-09-09,32.8,590,17.6,12.5,9.8,0.0,22.1,-23.1,528.6,144.1,1,1,0,0,1,0,0,0,7,5,out and back,,1,1,1,2,15
+Towab,Hiker_01,Park Interior,Lake Superior,Ontario,Canada,47.351,-84.582,2022-09-12,2022-09-13,20.2,450,19.0,13.3,6.8,0.0,24.1,-23.3,788.0,215.9,1,0,1,1,0,0,0,0,5,4,out and back,,1,1,1,2,16
+McKenzie,Hiker_01,Mississagi,Mississagi,Ontario,Canada,46.583,-82.695,2022-09-15,2022-09-16,30.9,750,14.3,11.0,11.4,0.0,27.6,-24.9,707.3,164.2,1,1,0,0,1,0,0,0,5,3,loop,,1,1,1,2,17
+Brule Bushwack,Hiker_01,West Algonquin,Algonquin,Ontario,Canada,45.603,-78.954,2022-10-14,2022-10-17,32.6,260,9.2,0.2,10.8,0.0,27.9,-23.7,817.4,200.9,1,1,0,0,0,1,0,0,7,1,out and back,,1,1,3,4,18
+Mizzy Lake,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.543,-78.695,2023-03-18,2023-03-19,11.4,90,-3.7,-15.2,0.0,1.6,28.1,-22.7,774.9,200.5,1,1,0,0,0,0,0,0,1,2,loop,,1,1,1,2,19
+Snake Lake,Hiker_01,East Side,Queen Elizabeth II,Ontario,Canada,44.861,-78.821,2023-05-05,2023-05-07,24.3,210,18.5,4.2,0.0,0.0,29.7,-22.6,854.2,149.6,1,1,0,0,0,0,0,0,3,2,out and back,,1,1,2,3,20
+Mama Bruce,Hiker_01,East Shore,Bruce Peninsula,Ontario,Canada,45.02,-81.284,2023-08-04,2023-08-06,12.5,130,22.6,16.4,0.7,0.0,25.3,-16.1,746.0,158.5,1,1,0,0,0,0,0,0,1,4,out and back,,1,1,2,3,21
+La Cloche Silhouette,Hiker_01,Killarney,Killarney,Ontario,Canada,46.014,-81.404,2023-08-27,2023-08-31,77.6,1520,19.7,9.7,11.9,0.0,24.5,-20.0,689.8,152.4,1,1,0,1,0,0,0,0,5,4,loop,,1,1,4,5,22
+Mt. Marcy,Hiker_01,High Peaks,Adirondacks,New York,USA,44.183,-73.964,2023-09-30,2023-10-02,36.2,1670,21.4,9.5,0.1,0.0,27.3,-24.1,903.5,210.5,1,1,1,0,0,1,0,0,7,5,loop,,1,1,2,3,23
+Sheldon Lake,Hiker_01,East Side,Queen Elizabeth II,Ontario,Canada,44.861,-78.821,2023-10-14,2023-10-15,18.9,160,12.4,6.1,1.0,0.0,29.7,-22.6,854.2,149.6,1,1,0,0,0,0,0,0,1,4,loop,,1,1,1,2,24
+Algonquin Pinnacle,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.614,-78.337,2023-12-02,2023-12-03,24.8,360,0.1,-7.7,0.0,0.1,28.4,-24.2,690.2,194.9,1,0,0,0,0,1,0,0,3,2,out and back,,1,1,1,2,25
+Track and Tower,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.56,-78.578,2024-01-27,2024-01-28,9.7,200,2.0,-1.5,0.0,0.0,28.0,-23.5,729.6,197.2,1,1,1,0,0,0,0,0,1,3,loop,,1,1,1,2,26
+Johns Brook Lodge,Hiker_01,High Peaks,Adirondacks,New York,USA,44.189,-73.816,2024-03-09,2024-03-10,14.1,420,4.4,-0.3,0.1,24.6,28.7,-22.9,886.1,188.8,1,0,0,0,0,0,0,0,1,4,out and back,,1,1,1,2,27
+Cat Mountain Eclipse,Hiker_01,Cranberry Lake,Adirondacks,New York,USA,44.132,-74.922,2024-04-06,2024-04-08,30.6,320,11.7,-2.4,0.0,0.0,28.0,-22.2,1036.2,222.4,1,1,1,1,0,0,0,0,5,3,loop,,1,1,2,3,28
+Wet Wolfjaw,Hiker_01,High Peaks,Adirondacks,New York,USA,44.15,-73.768,2024-06-29,2024-07-01,15.3,890,25.6,13.4,19.3,0.0,29.4,-22.4,886.1,188.8,1,0,0,1,0,0,0,0,5,3,out and back,,1,1,2,3,29
+Slide Lake Loop,Hiker_01,Frontenac,Frontenac,Ontario,Canada,44.518,-76.54,2024-08-16,2024-08-18,30.1,200,27.7,19.1,15.8,0.0,30.1,-19.8,839.2,129.4,1,1,0,0,0,0,0,0,3,2,loop,,1,1,2,3,30
+East Coast Trail,Hiker_01,Avalon Penninsula,Avalon Penninsula,Newfoundland,Canada,47.571,-52.702,2024-09-07,2024-09-08,36.5,650,19.1,14.8,1.0,0.0,23.8,-10.7,905.4,231.9,1,0,0,0,0,1,0,0,5,4,point to point,,1,1,1,2,31
+Long Range Traverse,Hiker_01,Gros Morne,Gros Morne,Newfoundland,Canada,49.787,-57.874,2024-09-15,2024-09-17,43.6,1450,20.6,11.5,19.8,0.0,23.0,-14.7,1054.7,403.5,1,1,0,1,0,0,0,0,7,4,point to point,,1,1,2,3,32
+Green Gardens,Hiker_01,Tablelands,Gros Morne,Newfoundland,Canada,49.491,-58.077,2024-09-19,2024-09-20,15.9,490,16.4,8.1,0.4,0.0,22.6,-15.9,1018.7,402.5,1,0,0,1,0,0,1,0,3,5,out and back,,1,1,1,2,33
+John on the Bruce,Hiker_01,East Shore,Bruce Peninsula,Ontario,Canada,45.093,-81.272,2024-10-04,2024-10-06,21.8,250,17.6,11.0,6.4,0.0,25.9,-15.6,736.0,165.3,1,1,0,0,0,0,0,0,1,4,out and back,,1,1,2,3,34
+McCrae Lake,Hiker_01,McCrae Lake,McCrae Lake,Ontario,Canada,44.922,-79.777,2024-10-12,2024-10-14,17.2,80,14.4,3.9,0.0,0.0,28.4,-19.1,854.7,167.9,1,1,0,1,0,0,0,0,1,3,out and back,,1,1,2,3,35
+Logging Museum,Hiker_01,Highway 60,Algonquin,Ontario,Canada,45.545,-78.263,2024-12-14,2024-12-15,1.7,10,-4.4,-12.0,0.0,0.0,28.6,-22.6,719.1,183.1,1,1,0,0,0,1,0,0,1,2,loop,,1,1,1,2,36
+Silver Peak,Hiker_01,Killarney,Killarney,Ontario,Canada,46.014,-81.404,2025-05-03,2025-05-06,60.9,1340,21.5,2.9,5.2,0.0,25.3,-20.0,782.8,156.4,1,1,0,0,0,0,0,0,7,4,loop,,1,1,3,4,37
+Cranberry Bog,Hiker_01,Killarney,Killarney,Ontario,Canada,46.018,-81.398,2025-05-08,2025-05-10,6.4,70,14.0,3.0,0.0,0.0,25.4,-19.9,780.9,156.4,1,1,0,0,0,0,0,0,1,3,loop,,1,1,2,3,38
+Greig's Caves,Hiker_01,East Shore,Bruce Peninsula,Ontario,Canada,44.927,-81.156,2025-06-12,2025-06-13,18.7,180,17.1,8.5,1.5,0.0,26.4,-13.5,763.1,172.7,1,1,0,0,0,0,1,0,3,3,point to point,,1,1,1,2,39
+Cape Croker,Hiker_01,East Shore,Bruce Peninsula,Ontario,Canada,44.878,-81.071,2025-06-14,2025-06-15,17.3,190,15.0,10.0,0.0,0.0,26.7,-13.0,769.3,174.3,1,1,0,0,0,0,0,0,1,3,point to point,,1,1,1,2,40
+Laugavegur,Hiker_01,Thorsmork,Thorsmork,Iceland,Iceland,63.991,-19.061,2025-06-27,2025-06-30,86.1,2160,11.7,5.5,17.3,0.0,14.2,-16.2,1102.4,693.6,1,1,1,1,0,0,1,1,7,5,point to point,,1,1,3,4,41
+Lion's Head,Hiker_01,East Shore,Bruce Peninsula,Ontario,Canada,44.959,-81.226,2025-07-18,2025-07-19,18.5,190,21.1,15.0,0.0,0.0,26.7,-13.2,775.3,172.7,1,1,0,0,0,0,1,0,3,3,loop,,1,1,1,2,42
+Orphan and Superior,Hiker_01,Park Coast,Lake Superior,Ontario,Canada,47.49,-84.811,2025-07-24,2025-07-25,12.0,240,22.0,11.9,0.8,0.0,24.9,-23.0,908.9,226.4,1,1,1,1,1,0,0,0,5,4,out and back,,1,1,1,2,43
+Grassy Agony,Hiker_01,Lake Audy,Riding Mountain,Manitoba,Canada,50.798,-100.237,2025-07-30,2025-07-31,29.4,80,21.5,11.3,0.0,0.0,28.3,-30.2,389.9,129.4,1,1,0,0,0,0,0,0,3,1,out and back,,1,1,1,2,44
+Bertha Lake,Hiker_01,Waterton Lakes,Waterton Lakes,Alberta,Canada,49.047,-113.917,2025-08-14,2025-08-15,18.0,670,22.3,10.6,0.3,0.0,29.4,-23.7,313.9,285.0,1,1,0,1,0,0,0,0,5,5,out and back,,1,1,1,2,45
+Johnston Canyon,Hiker_01,Johnston Canyon,Banff,Alberta,Canada,51.245,-115.84,2025-08-17,2025-08-18,40.6,810,20.1,7.0,0.2,0.0,27.0,-26.6,284.4,235.4,1,1,1,1,0,0,1,0,5,5,out and back,,1,1,1,2,46
+Tonquin Valley,Hiker_01,Tonquin Valley,Jasper,Alberta,Canada,52.781,-118.076,2025-08-22,2025-08-24,47.9,1100,23.2,5.2,0.0,0.0,25.4,-27.3,358.9,266.0,1,1,0,0,0,0,0,0,7,5,out and back,,1,1,2,3,47
+Joffre Lakes,Hiker_01,Joffre Lakes,Joffre Lakes,British Columbia,Canada,50.369,-122.499,2025-08-27,2025-08-28,9.3,390,29.4,12.7,0.0,0.0,28.0,-21.2,586.6,625.3,1,1,0,1,0,0,0,0,5,4,out and back,,1,1,1,2,48
+Buchan Bay,Hiker_01,Okanagan Mountain,Okanagan Mountain,British Columbia,Canada,49.779,-119.611,2025-10-10,2025-10-11,23.5,590,20.3,10.5,0.0,0.0,35.0,-10.794,326.88,118.874,1,1,0,0,0,0,0,0,3,3,out and back,,1,1,1,2,49
+Icey Grotto,Hiker_01,North Shore,Bruce Peninsula,Ontario,Canada,45.237,-81.523,2025-12-16,2025-12-17,9.2,40,3.3,-1.6,0.2,0.0,24.4,-13.0,772.92,180.22200000000004,1,1,0,0,0,0,1,0,1,2,loop,,1,1,1,2,50

@@ -1,0 +1,13 @@
+name,user,park,province,country,latitude,longitude,distance,elevation_gain,summer_temp,winter_temp,annual_rain,annual_snow,forest,lake,river,waterfall,beach,historic_site,cave,hot_spring,difficulty,rating,route_type,route,backpacking,enjoyment
+West Coast Trail,Hiker_01,Pacific Rim,British Columbia,Canada,48.577,-124.417,75.0,1510,24.6,-2.1,3151.7,121.0,1,0,1,1,1,1,1,0,5.825250221476977,4.29,point to point,https://www.alltrails.com/trail/canada/british-columbia/west-coast-trail-north-to-south,1,4.46408550880554
+Full Western Uplands,Hiker_01,Algonquin,Ontario,Canada,45.463,-78.798,73.1,940,28.2,-22.3,864.3,210.8,1,1,1,0,0,0,0,0,4.718533439566024,3.73,loop,,1,3.13588427375992
+Grande Rota,Hiker_01,Santa Maria,Azores,Portugal,36.974,-25.165,70.6,2100,23.7,12.5,716.6,0.0,1,0,0,1,1,0,1,0,6.689237298149777,4.25,loop,,1,4.54490871691092
+Lake Superior Coast,Hiker_01,Lake Superior,Ontario,Canada,47.559,-84.949,70.4,660,24.5,-22.1,876.1,225.4,1,1,1,1,1,0,1,0,4.479689216282606,4.51,point to point,,1,4.034189600190907
+Pukaskwa Coast,Hiker_01,Pukaskwa,Ontario,Canada,48.591,-86.29,59.5,730,24.0,-25.3,651.4,179.8,1,1,1,1,1,0,0,0,4.677877786341232,4.49,point to point,,1,3.9691663462882514
+Okanagan Mountain,Hiker_01,Okanagan Mountain,British Columbia,Canada,49.782,-119.591,24.4,1230,35.7,-12.4,344.8,125.2,1,1,0,0,0,0,0,0,4.915472834308787,,loop,,1,4.103355052424266
+Heaven's Gate Trail,Hiker_01,La Cloche,Ontario,Canada,46.113,-82.076,38.0,1320,24.4,-19.3,753.5,156.3,1,1,1,0,0,0,0,0,5.297424179948981,4.36,point to point,https://www.alltrails.com/trail/canada/ontario/heavens-gate-trail,1,4.112973499355827
+Presidential Range,Hiker_01,White Mountains,New Hampshire,USA,44.281,-71.253,36.2,2220,25.9,-22.6,969.9,322.0,1,1,1,1,0,0,0,0,5.462078904243576,4.46,point to point,,1,4.56405540804764
+Highland Trail,Hiker_01,Algonquin,Ontario,Canada,45.573,-78.525,35.0,460,28.6,-22.9,740.8,196.5,1,1,1,1,0,0,0,0,3.304850682243481,2.83,loop,,1,2.938291440299338
+Spectrum Lake,Hiker_01,Monashee,British Columbia,Canada,50.504,-118.361,13.9,380,31.0,-17.0,520.9,398.0,1,1,1,0,0,0,0,0,3.1276822414282157,3.82,out and back,,1,3.761059611366785
+Pollett's Cove,Hiker_01,Cape Breton Highlands,Nova Scotia,Canada,46.873,-60.743,13.3,680,26.2,-11.6,1144.7,421.6,1,0,1,0,1,0,0,0,4.2719676169034,4.32,out and back,,1,4.210408886984725
+Flowerpot Island,Hiker_01,Fathom Five,Ontario,Canada,45.299,-81.617,5.8,50,21.7,-13.2,719.2,180.7,1,1,0,0,0,1,1,0,1.5171168209688173,3.6,loop,,1,3.7481540793746193

@@ -1,0 +1,146 @@
+{
+  "summary": {
+    "raw_trails_rows": 3313,
+    "raw_climate_rows": 3313,
+    "cleaned_hiking_rows": 3104,
+    "derived_feature_matrix_shape": [
+      3104,
+      58
+    ],
+    "final_feature_count": 58
+  },
+  "target_distribution": {
+    "column_name": "difficulty_rating",
+    "classes": [
+      "Easy (1)",
+      "Moderate (3)",
+      "Hard (5)",
+      "Strenuous (7)"
+    ],
+    "raw_counts": {
+      "1": 778,
+      "3": 1379,
+      "5": 763,
+      "7": 184
+    },
+    "percentages": {
+      "1": 25.06,
+      "3": 44.43,
+      "5": 24.58,
+      "7": 5.93
+    }
+  },
+  "missing_values": {
+    "raw_trails_nulls": {
+      "visitor_usage": 253
+    },
+    "raw_climate_nulls": {},
+    "cleaned_features_nulls_after_preprocessing": 0
+  },
+  "categorical_cardinalities": {
+    "route_type": 3,
+    "park": 58,
+    "state": 28
+  },
+  "duplicates": {
+    "duplicate_trail_ids": 0,
+    "duplicate_trail_name_and_park": 11
+  },
+  "features_excluded_due_to_leakage": [
+    "avg_rating",
+    "popularity",
+    "num_reviews",
+    "visitor_usage",
+    "units",
+    "trail_id",
+    "name",
+    "city_name"
+  ],
+  "suspicious_columns": [
+    {
+      "column": "visitor_usage",
+      "issue": "253 missing values; post-hoc traffic estimation.",
+      "action": "Excluded (Leakage & High Missingness)"
+    },
+    {
+      "column": "avg_rating",
+      "issue": "Post-hoc crowdsourced user rating reflecting trail satisfaction, not physical trail physics.",
+      "action": "Excluded (Post-Hoc Leakage Risk)"
+    },
+    {
+      "column": "popularity",
+      "issue": "Search and click ranking influenced by user difficulty ratings.",
+      "action": "Excluded (Post-Hoc Leakage Risk)"
+    },
+    {
+      "column": "num_reviews",
+      "issue": "Engagement count strongly correlated with easy/popular trails.",
+      "action": "Excluded (Post-Hoc Leakage Risk)"
+    },
+    {
+      "column": "units",
+      "issue": "Arbitrary scrape unit parameter ('i' vs 'm') where length was already stored in meters.",
+      "action": "Excluded (Artifact)"
+    }
+  ],
+  "feature_list": [
+    "distance_km",
+    "elevation_gain",
+    "elevation_gradient",
+    "elevation_gain_per_km",
+    "summer_temp",
+    "winter_temp",
+    "annual_rain",
+    "annual_snow",
+    "forest",
+    "river",
+    "lake",
+    "waterfall",
+    "beach",
+    "cave",
+    "historic_site",
+    "hot_spring",
+    "backpacking",
+    "route_type_loop",
+    "route_type_out and back",
+    "route_type_point to point",
+    "park_Acadia",
+    "park_Arches",
+    "park_Big Bend",
+    "park_Black Canyon of the Gunnison",
+    "park_Bryce Canyon",
+    "park_Canyonlands",
+    "park_Capitol Reef",
+    "park_Channel Islands",
+    "park_Crater Lake",
+    "park_Cuyahoga Valley",
+    "park_Death Valley",
+    "park_Denali",
+    "park_Glacier",
+    "park_Grand Canyon",
+    "park_Grand Teton",
+    "park_Great Basin",
+    "park_Great Smoky Mountains",
+    "park_Guadalupe Mountains",
+    "park_Hawaii Volcanoes",
+    "park_Joshua Tree",
+    "park_Kings Canyon",
+    "park_Lassen Volcanic",
+    "park_Mammoth Cave",
+    "park_Mesa Verde",
+    "park_Mount Rainier",
+    "park_North Cascades",
+    "park_Olympic",
+    "park_Other",
+    "park_Pinnacles",
+    "park_Redwood",
+    "park_Rocky Mountain",
+    "park_Saguaro",
+    "park_Sequoia",
+    "park_Shenandoah",
+    "park_Theodore Roosevelt",
+    "park_Yellowstone",
+    "park_Yosemite",
+    "park_Zion"
+  ]
+}
