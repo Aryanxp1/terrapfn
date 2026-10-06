@@ -274,13 +274,45 @@ TACTICAL_CSS = """
   line-height: 1.6;
 }
 
+/* Streamlit chrome adjustments */
+header[data-testid="stHeader"] {
+  background-color: transparent !important;
+}
+
 /* Custom buttons */
-.stButton > button {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+button[data-testid="stBaseButton-secondary"],
+div[data-testid="stButton"] > button {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  background-color: #161f2e !important;
+  color: #f0f6fc !important;
+  border: 1px solid #2d3b52 !important;
+}
+
+button[data-testid="stBaseButton-secondary"]:hover,
+div[data-testid="stButton"] > button:hover {
+  background-color: #243247 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+button[data-testid="stBaseButton-primary"],
+div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"] {
+  background: linear-gradient(180deg, #2ea043 0%, #238636 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #3fb950 !important;
+  box-shadow: 0 2px 10px rgba(46, 160, 67, 0.4) !important;
+}
+
+button[data-testid="stBaseButton-primary"]:hover,
+div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"]:hover {
+  background: linear-gradient(180deg, #3fb950 0%, #2ea043 100%) !important;
+  border-color: #56d364 !important;
+  color: #ffffff !important;
 }
 </style>
 """

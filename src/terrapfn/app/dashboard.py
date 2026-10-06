@@ -128,14 +128,53 @@ def render_sidebar(catalog_df: pd.DataFrame) -> None:
         )
 
         # Honest verified benchmark table from data/processed/benchmark_results/
-        benchmark_summary = pd.DataFrame([
-            {"Model": "TabPFN (v2)", "QWK": "0.7310", "Bal Acc": "55.15%", "LogLoss": "0.7017"},
-            {"Model": "Random Forest", "QWK": "0.7260", "Bal Acc": "54.62%", "LogLoss": "0.7266"},
-            {"Model": "HistGradBoost", "QWK": "0.7041", "Bal Acc": "54.74%", "LogLoss": "0.8880"},
-            {"Model": "Logistic Reg", "QWK": "0.7063", "Bal Acc": "53.41%", "LogLoss": "0.7777"},
-            {"Model": "Dummy Floor", "QWK": "0.0055", "Bal Acc": "24.21%", "LogLoss": "10.950"},
-        ])
-        st.dataframe(benchmark_summary, hide_index=True, use_container_width=True)
+        st.markdown(
+            """
+            <table style="width:100%; border-collapse:collapse; font-family:'JetBrains Mono',monospace; font-size:11px; margin-bottom:8px;">
+              <thead>
+                <tr style="border-bottom:1px solid #30363d; color:#8b949e; text-align:left;">
+                  <th style="padding:4px 2px;">Model</th>
+                  <th style="padding:4px 2px; text-align:right;">QWK</th>
+                  <th style="padding:4px 2px; text-align:right;">BalAcc</th>
+                  <th style="padding:4px 2px; text-align:right;">LogLoss</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="color:#3fb950; font-weight:700; background:rgba(46,160,67,0.12); border-bottom:1px solid #21262d;">
+                  <td style="padding:5px 2px;">★ TabPFN (v2)</td>
+                  <td style="padding:5px 2px; text-align:right;">0.7310</td>
+                  <td style="padding:5px 2px; text-align:right;">55.15%</td>
+                  <td style="padding:5px 2px; text-align:right;">0.7017</td>
+                </tr>
+                <tr style="color:#c9d1d9; border-bottom:1px solid #21262d;">
+                  <td style="padding:4px 2px;">Random Forest</td>
+                  <td style="padding:4px 2px; text-align:right;">0.7260</td>
+                  <td style="padding:4px 2px; text-align:right;">54.62%</td>
+                  <td style="padding:4px 2px; text-align:right;">0.7266</td>
+                </tr>
+                <tr style="color:#c9d1d9; border-bottom:1px solid #21262d;">
+                  <td style="padding:4px 2px;">HistGradBoost</td>
+                  <td style="padding:4px 2px; text-align:right;">0.7041</td>
+                  <td style="padding:4px 2px; text-align:right;">54.74%</td>
+                  <td style="padding:4px 2px; text-align:right;">0.8880</td>
+                </tr>
+                <tr style="color:#c9d1d9; border-bottom:1px solid #21262d;">
+                  <td style="padding:4px 2px;">Logistic Reg</td>
+                  <td style="padding:4px 2px; text-align:right;">0.7063</td>
+                  <td style="padding:4px 2px; text-align:right;">53.41%</td>
+                  <td style="padding:4px 2px; text-align:right;">0.7777</td>
+                </tr>
+                <tr style="color:#8b949e;">
+                  <td style="padding:4px 2px;">Dummy Floor</td>
+                  <td style="padding:4px 2px; text-align:right;">0.0055</td>
+                  <td style="padding:4px 2px; text-align:right;">24.21%</td>
+                  <td style="padding:4px 2px; text-align:right;">10.950</td>
+                </tr>
+              </tbody>
+            </table>
+            """,
+            unsafe_allow_html=True,
+        )
         st.caption(
             "Measured on 3,104 US National Parks trails. TabPFN decisively leads on Log Loss (0.7017 vs 0.8880), "
             "Brier Score, and Quadratic Weighted Kappa (QWK)."
@@ -186,15 +225,15 @@ def main() -> None:
     # Step 1: Mode Selector (Curated Demos vs Full Catalog vs Custom Route)
     mode_cols = st.columns([1, 1, 1])
     with mode_cols[0]:
-        if st.button("🌟 Curated Benchmark Demos", use_container_width=True, type="primary" if st.session_state.input_mode == "demo" else "secondary"):
+        if st.button("🌟 Curated Benchmark Demos", width="stretch", type="primary" if st.session_state.input_mode == "demo" else "secondary"):
             st.session_state.input_mode = "demo"
             st.rerun()
     with mode_cols[1]:
-        if st.button("🔍 Explore 3,100+ National Trails", use_container_width=True, type="primary" if st.session_state.input_mode == "catalog" else "secondary"):
+        if st.button("🔍 Explore 3,100+ National Trails", width="stretch", type="primary" if st.session_state.input_mode == "catalog" else "secondary"):
             st.session_state.input_mode = "catalog"
             st.rerun()
     with mode_cols[2]:
-        if st.button("✏️ Synthesize Custom Route", use_container_width=True, type="primary" if st.session_state.input_mode == "custom" else "secondary"):
+        if st.button("✏️ Synthesize Custom Route", width="stretch", type="primary" if st.session_state.input_mode == "custom" else "secondary"):
             st.session_state.input_mode = "custom"
             st.rerun()
 
@@ -236,7 +275,7 @@ def main() -> None:
                     """,
                     unsafe_allow_html=True,
                 )
-                if st.button(f"Select {demo['label']}", key=f"demo_btn_{demo['id']}", use_container_width=True):
+                if st.button(f"Select {demo['label']}", key=f"demo_btn_{demo['id']}", width="stretch"):
                     st.session_state.selected_trail_id = demo.get("trail_id")
                     st.session_state.cached_grass_pass = None
                     st.rerun()
@@ -424,7 +463,7 @@ def main() -> None:
                 "🌲 GENERATE GRASS PASS",
                 key="btn_generate_pass",
                 type="primary",
-                use_container_width=True,
+                width="stretch",
             )
 
         if generate_clicked:
@@ -469,7 +508,7 @@ def main() -> None:
             export_cols = st.columns([1, 1, 1])
             with export_cols[0]:
                 # Primary CTA: Cache & Go
-                if st.button("🎒 CACHE & GO (TOUCH GRASS)", key="btn_cache_go", type="primary", use_container_width=True):
+                if st.button("🎒 CACHE & GO (TOUCH GRASS)", key="btn_cache_go", type="primary", width="stretch"):
                     st.session_state.touch_grass_active = True
                     st.session_state.hike_start_time = time.time()
                     st.rerun()
@@ -482,7 +521,7 @@ def main() -> None:
                     data=html_pass,
                     file_name=f"TerraPFN_GrassPass_{p_trail.get('name', 'Trail').replace(' ', '_')}.html",
                     mime="text/html",
-                    use_container_width=True,
+                    width="stretch",
                 )
 
             with export_cols[2]:
@@ -502,7 +541,7 @@ def main() -> None:
                     data=text_pass,
                     file_name=f"TerraPFN_{p_trail.get('name', 'Trail').replace(' ', '_')}.txt",
                     mime="text/plain",
-                    use_container_width=True,
+                    width="stretch",
                 )
 
 
@@ -547,12 +586,12 @@ def render_touch_grass_screen() -> None:
     # Return action
     c1, c2, c3 = st.columns([1, 2, 1])
     with c2:
-        if st.button("🥾 I'M BACK FROM THE HIKE (RECORD REFLECTION)", type="primary", use_container_width=True):
+        if st.button("🥾 I'M BACK FROM THE HIKE (RECORD REFLECTION)", type="primary", width="stretch"):
             st.session_state.touch_grass_active = False
             st.session_state.show_checkin_modal = True
             st.rerun()
 
-        if st.button("← Return to Trail Planner", use_container_width=True):
+        if st.button("← Return to Trail Planner", width="stretch"):
             st.session_state.touch_grass_active = False
             st.rerun()
 
@@ -615,7 +654,7 @@ def render_checkin_screen() -> None:
 
         sub_cols = st.columns([1, 1])
         with sub_cols[0]:
-            if st.button("💾 SAVE OBSERVATION", type="primary", use_container_width=True):
+            if st.button("💾 SAVE OBSERVATION", type="primary", width="stretch"):
                 record = record_checkin(
                     trail_name=trail_name,
                     felt_difficulty=felt_difficulty,
@@ -630,7 +669,7 @@ def render_checkin_screen() -> None:
                 st.rerun()
 
         with sub_cols[1]:
-            if st.button("Cancel & Return", use_container_width=True):
+            if st.button("Cancel & Return", width="stretch"):
                 st.session_state.show_checkin_modal = False
                 st.rerun()
 
