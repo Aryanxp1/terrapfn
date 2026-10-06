@@ -1,6 +1,6 @@
 # TerraPFN: Foundation Tabular Intelligence for the Great Outdoors
 
-**Author & Creator:** [Aryan Vishwakarma](https://github.com/aryanvishwakarma)  
+**Author & Creator:** [Aryan Vishwakarma](https://github.com/Aryanxp1)  
 **Hacktoberfest 2026 Submission:** Best Use of TabPFN | Theme: *Touch Grass*  
 **License:** [MIT License](LICENSE) | **Attribution:** [ATTRIBUTION.md](ATTRIBUTION.md)
 
@@ -115,6 +115,10 @@ Trails/
 ### Installation & Launch
 
 ```bash
+# Clone the repository
+git clone https://github.com/Aryanxp1/terrapfn.git
+cd terrapfn
+
 # 1. Install package in editable mode
 pip install -e ".[dev]"
 

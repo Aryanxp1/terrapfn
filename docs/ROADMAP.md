@@ -1,8 +1,8 @@
 # TerraPFN Development Roadmap
 
 **Project Name:** TerraPFN  
-**GitHub Repository:** `terrapfn`  
-**Author & Lead Architect:** [Aryan Vishwakarma](https://github.com/aryanvishwakarma)  
+**GitHub Repository:** [Aryanxp1/terrapfn](https://github.com/Aryanxp1/terrapfn)  
+**Author & Lead Architect:** [Aryan Vishwakarma](https://github.com/Aryanxp1)  
 **Hacktoberfest 2026 Category:** Best Use of TabPFN | **Theme:** Touch Grass  
 **Positioning:** A TabPFN-powered zero-scroll outdoor trail intelligence system.
 
