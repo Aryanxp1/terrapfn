@@ -9,9 +9,15 @@ Theme: Touch Grass
 from __future__ import annotations
 
 import os
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, Optional
+
+# Ensure repository root and src directory are in sys.path for direct cloud execution
+SRC_DIR = Path(__file__).resolve().parents[2]
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 
 import numpy as np
 import pandas as pd

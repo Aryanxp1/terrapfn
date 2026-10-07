@@ -1,0 +1,15 @@
+# TerraPFN - Cloud Deployment Requirements
+# Compatible with Python 3.10, 3.11, 3.12 (Streamlit Community Cloud / Hugging Face Spaces)
+
+# Core ML & Foundation Models
+tabpfn>=2.0.0
+torch>=2.2.0
+scikit-learn>=1.4.0
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Application & UI
+streamlit>=1.35.0
+plotly>=5.20.0
+pydantic>=2.6.0
+requests>=2.31.0

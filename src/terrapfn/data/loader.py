@@ -83,8 +83,18 @@ def load_raw_datasets(
     climate_path: str | Path = "data/raw/national_parks_climate.csv",
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Load raw trail and climate CSVs."""
+    repo_root = Path(__file__).resolve().parents[3]
     trails_p = Path(trails_path)
+    if not trails_p.exists():
+        candidate = repo_root / trails_path
+        if candidate.exists():
+            trails_p = candidate
+
     climate_p = Path(climate_path)
+    if not climate_p.exists():
+        candidate = repo_root / climate_path
+        if candidate.exists():
+            climate_p = candidate
 
     if not trails_p.exists():
         raise FileNotFoundError(f"Trails dataset not found at {trails_p}")
