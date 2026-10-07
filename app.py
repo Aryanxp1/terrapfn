@@ -19,5 +19,5 @@ if str(src_dir) not in sys.path:
 # Execute main dashboard
 from terrapfn.app.dashboard import main
 
-if __name__ == "__main__":
-    main()
+main()
+

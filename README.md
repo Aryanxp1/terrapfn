@@ -9,9 +9,9 @@
 
 **Author & Lead Architect:** [Aryan Vishwakarma](https://github.com/Aryanxp1)  
 **GitHub Repository:** [https://github.com/Aryanxp1/terrapfn](https://github.com/Aryanxp1/terrapfn)  
-**Live Application (Streamlit Cloud):** [https://terrapfn.streamlit.app](https://terrapfn.streamlit.app)  
+**Live Application Target:** [https://terrapfn.streamlit.app](https://terrapfn.streamlit.app)  
 **One-Click Deploy:** [Deploy on Streamlit Community Cloud](https://share.streamlit.io/deploy?repository=Aryanxp1/terrapfn&branch=main&mainModule=app.py)  
-**Demo Video:** [Watch 60-Second Walkthrough](docs/DEMO_VIDEO_PLAN.md) *(Local / YouTube / DEV embed)*  
+**Demo Video Script:** [60-Second Walkthrough Script](docs/FINAL_VIDEO_SCRIPT.md)  
 
 ---
 
@@ -27,7 +27,7 @@ Traditional outdoor platforms trap hikers in high-friction digital loops:
 ### The TerraPFN Solution
 TerraPFN computes an objective biophysical preparation envelope in seconds:
 1. **Select or Synthesize:** Choose an existing trail from 3,104 US National Parks hikes or specify custom route parameters.
-2. **Instant Preview (<35ms):** A fast gradient-boosting baseline provides real-time slider feedback.
+2. **Instant Preview (<25ms):** A fast gradient-boosting baseline provides real-time slider feedback.
 3. **Generate Grass Pass (TabPFN v2):** In-context Bayesian inference computes a calibrated posterior difficulty distribution and physical preparation envelope (minimum hydration quotas, footwear, trekking poles, and turnaround alarm).
 4. **Cache & Go:** Download the printable field card (HTML/PDF/TXT), pocket the phone, and step onto the trail.
 5. **Post-Hike Check-In:** Record an honest observation after the hike to log ground-truth data for future calibration.
@@ -35,9 +35,9 @@ TerraPFN computes an objective biophysical preparation envelope in seconds:
 ```mermaid
 flowchart TD
     A[Open TerraPFN] --> B[Select Trail or Enter Topography]
-    B --> C[Fast Preview Engine: HistGBM < 35ms]
+    B --> C[Fast Preview Engine: HistGBM < 25ms]
     C --> D[Click 'GENERATE GRASS PASS']
-    D --> E[TabPFN v2 Foundation Inference: ~8s CPU / <1s GPU]
+    D --> E[TabPFN v2 Foundation Inference: ~6.3s CPU / <500ms GPU]
     E --> F[Calibrated Probability Distribution & Preparation Envelope]
     F --> G[Click 'CACHE & GO']
     G --> H[Pocket Phone -> Touch Grass Outdoors]
@@ -48,20 +48,22 @@ flowchart TD
 
 ## 2. Product Screenshots
 
-| Landing & Benchmark HUD | Trail Physics & Fast Preview |
+| Landing & Model Evidence | Trail Physics & Fast Preview |
 |:---:|:---:|
-| ![Landing HUD](docs/screenshots/01_landing.png) | ![Trail Selected](docs/screenshots/02_trail_selected.png) |
-| *Tactical HUD with 5-fold CV evidence sidebar* | *Topographic physics grid + interactive preview* |
+| ![Landing](docs/screenshots/v2/01_landing.png) | ![Trail Selected](docs/screenshots/v2/02_trail_selected.png) |
+| *Editorial interface with 5-fold CV evidence sidebar* | *Topographic physics grid + interactive preview* |
 
-| TabPFN Foundation Inference | Grass Pass Preparation Card |
+| TabPFN Foundation Assessment | Grass Pass Preparation Card |
 |:---:|:---:|
-| ![TabPFN Inference](docs/screenshots/03_tabpfn_prediction.png) | ![Grass Pass Card](docs/screenshots/04_grass_pass.png) |
+| ![TabPFN Assessment](docs/screenshots/v2/03_tabpfn_prediction.png) | ![Grass Pass Card](docs/screenshots/v2/04_grass_pass.png) |
 | *TabPFN v2 in-context foundation execution* | *Calibrated Bayesian posteriors + hydration envelope* |
 
 | Touch Grass Active Mode | Post-Hike Reflection Loop |
 |:---:|:---:|
-| ![Touch Grass Mode](docs/screenshots/05_touch_grass_mode.png) | ![Post-Hike Check-In](docs/screenshots/06_post_hike_checkin.png) |
-| *Zero-distraction lockscreen with hike timer* | *Ground-truth feedback loop logging actual exertion* |
+| ![Touch Grass Mode](docs/screenshots/v2/05_touch_grass_mode.png) | ![Post-Hike Check-In](docs/screenshots/v2/06_post_hike_checkin.png) |
+| *Zero-distraction lockscreen with outdoor timer* | *Ground-truth feedback loop logging actual exertion* |
+
+*(Responsive mobile verification is also documented in [docs/screenshots/v2/07_mobile_view.png](docs/screenshots/v2/07_mobile_view.png))*
 
 ---
 
@@ -95,18 +97,18 @@ We conducted a rigorous, leakage-free benchmark comparing **TabPFN (v2)** agains
 3. **Balanced Class Handling Without Reweighting:**  
    TabPFN attained the highest Balanced Accuracy (**0.5515**), handling class imbalance (Easy: 778, Moderate: 1,379, Hard: 763, Strenuous: 184) organically through prior-data fitting.
 4. **The Honest Latency Nuance:**  
-   TabPFN is not universally superior across every metric: HistGradientBoosting achieved slightly higher raw Macro F1 (0.5544 vs. 0.5437) and executed in milliseconds. On CPU, TabPFN evaluated in ~8.9s per pass. This empirical insight directly guided our **dual-engine architecture**: fast preview for real-time responsiveness + TabPFN foundation model for generating the official Grass Pass.
+   TabPFN is not universally superior across every metric: HistGradientBoosting achieved slightly higher raw Macro F1 (0.5544 vs. 0.5437) and executed in milliseconds. On CPU, TabPFN evaluated in ~6.3s per pass. This empirical insight directly guided our **dual-engine architecture**: fast preview for real-time responsiveness + TabPFN foundation model for generating the official Grass Pass.
 
 ---
 
-## 4. Measured Deployed Latency Profile
+## 4. Measured Latency Profile
 
 | Component | Engine | Measured Latency | Purpose |
 |:---|:---|:---:|:---|
 | **Catalog Ingestion** | Pandas (3,104 trails) | **0.185s** | One-time cached load |
-| **Engine Fitting** | Pipeline + TabPFN Context | **8.903s** | Cached via `@st.cache_resource` |
-| **Fast Preview** | HistGradientBoosting | **32.90ms** | Real-time slider & trail browsing |
-| **Grass Pass Inference** | TabPFN v2 (CPU, N=1000) | **8.901s** | Calibrated Bayesian posterior calculation |
+| **Engine Fitting** | Pipeline + TabPFN Context | **6.320s** | Cached via `@st.cache_resource` |
+| **Fast Preview** | HistGradientBoosting | **15.30ms** | Real-time slider & trail browsing |
+| **Grass Pass Inference** | TabPFN v2 (CPU, N=1000) | **6.327s** | Calibrated Bayesian posterior calculation |
 | **Preparation Envelope** | Naismith / Langmuir Physics | **0.08ms** | Deterministic gear & water envelope |
 
 ---
@@ -121,7 +123,7 @@ terrapfn/
 ├── src/terrapfn/
 │   ├── app/
 │   │   ├── dashboard.py             # Streamlit application UI & state engine
-│   │   ├── styles.py                # Tactical outdoor CSS HUD design system
+│   │   ├── styles.py                # Premium outdoor CSS design system (zero emojis)
 │   │   └── components.py            # Reusable UI widgets & Grass Pass hero card
 │   ├── services/
 │   │   ├── trail_service.py         # Trail catalog access & custom route synthesis
@@ -144,11 +146,12 @@ terrapfn/
 │       └── data_quality_report.md   # Dataset quality report
 ├── docs/
 │   ├── DEMO_SCRIPT.md               # 60-second judge walkthrough script
-│   ├── DEMO_VIDEO_PLAN.md           # Visual storyboard and video production plan
+│   ├── FINAL_VIDEO_SCRIPT.md        # Canonical 60-second video narration and action plan
 │   ├── DEV_SUBMISSION.md            # Official Hacktoberfest DEV submission article
 │   ├── SUBMISSION_CHECKLIST.md      # Official challenge rules verification
 │   ├── ROADMAP.md                   # 5-phase project execution roadmap
-│   └── screenshots/                 # 7 canonical judge-ready UI screenshots
+│   └── screenshots/
+│       └── v2/                      # 7 high-resolution verification screenshots
 ├── tests/                           # 23 unit & integration tests (100% passing)
 ├── LICENSE                          # MIT License (Aryan Vishwakarma)
 └── ATTRIBUTION.md                   # Open data & reference architecture attribution
@@ -159,7 +162,7 @@ terrapfn/
 ## 6. Installation & Local Development
 
 ### Prerequisites
-- Python 3.10, 3.11, or 3.12 (also tested on Python 3.14)
+- Python 3.10, 3.11, or 3.12 (also verified on Python 3.14)
 - Git
 
 ### Quickstart
@@ -187,10 +190,10 @@ Open `http://localhost:8501` in your browser.
 ## 7. Cloud Deployment Guide
 
 ### Deploying to Streamlit Community Cloud
-1. Fork or push to your GitHub account: `https://github.com/Aryanxp1/terrapfn`.
+1. Push to your GitHub account: `https://github.com/Aryanxp1/terrapfn`.
 2. Visit [share.streamlit.io](https://share.streamlit.io/).
 3. Connect repository `Aryanxp1/terrapfn`, branch `main`, main file path `app.py`.
-4. Select Python 3.11 or 3.12 under Advanced Settings.
+4. App URL: `terrapfn.streamlit.app`.
 5. Click **Deploy!**
 
 ### Deploying to Hugging Face Spaces
@@ -216,7 +219,7 @@ Hikers can also search across all 3,104 National Park hikes or synthesize custom
 ## 9. Known Limitations & Safety Boundaries
 
 1. **CPU Inference Latency:**  
-   TabPFN's full-context transformer attention scales with dataset tokens. On CPU, evaluation of a single query against a 1,000-sample in-context prompt takes ~8.9 seconds. For high-throughput production deployments, GPU acceleration (`device="cuda"`) reduces this to <500ms.
+   TabPFN's full-context transformer attention scales with dataset tokens. On CPU, evaluation of a single query against a 1,000-sample in-context prompt takes ~6.3 seconds. For high-throughput production deployments, GPU acceleration (`device="cuda"`) reduces this to <500ms.
 2. **Preparation Envelopes are Planning Guides:**  
    Water quotas (derived from duration and metabolic heat index) and duration estimates (Naismith's Rule with Langmuir corrections) are deterministic planning guidelines, **not medical or survival guarantees**. Real trail conditions (active storms, landslides, personal fitness) take precedence.
 3. **Local Privacy:**  
@@ -226,12 +229,11 @@ Hikers can also search across all 3,104 National Park hikes or synthesize custom
 
 ## 10. Data Provenance & Acknowledgments
 
+- **Foundation Model:** Prior Labs TabPFN (v2 / Nature 2022).
 - **Trail Dataset:** Jane's National Parks Trails dataset (Kaggle / AllTrails).
 - **Climate Reanalysis:** Open-Meteo Historical Weather API (CC BY 4.0).
-- **Foundation Model:** Prior Labs TabPFN (Nature 2022 / v2).
-- **Scaffold Attribution:** Derived from and restructured with permission from Jamie Breault's MyTrails reference architecture. See [ATTRIBUTION.md](ATTRIBUTION.md) for complete details.
+- **Scaffold Attribution:** Derived and sanitized from Jamie Breault's MyTrails reference architecture. See [ATTRIBUTION.md](ATTRIBUTION.md).
 
 ---
 
-*TerraPFN — Hacktoberfest 2026 Week 1 Submission*  
-*Lead Architect: Aryan Vishwakarma*
+*Know the trail. Get outside.*
