@@ -1,4 +1,8 @@
-"""Reusable UI components for the TerraPFN tactical dashboard."""
+"""Reusable UI components for the TerraPFN outdoor intelligence interface.
+
+Follows a restrained, editorial design system inspired by expedition field cards,
+modern topographical specifications, and technical trail navigation.
+"""
 
 from __future__ import annotations
 
@@ -7,28 +11,42 @@ import streamlit as st
 
 from terrapfn.services.inference_service import DifficultyPrediction
 
+# Restrained semantic colors
 CLASS_COLORS = {
-    "Easy": "#2ea043",        # Pine Green
+    "Easy": "#2ea043",        # Natural Forest
     "Moderate": "#d29922",    # Topo Amber
-    "Hard": "#db6d28",        # Mesa Rust
-    "Strenuous": "#f85149",   # Alpine Crimson
+    "Hard": "#c95d22",        # Terracotta Rust
+    "Strenuous": "#cf4a43",   # Deep Crimson
+}
+
+CLASS_BACKGROUNDS = {
+    "Easy": "rgba(46, 160, 67, 0.12)",
+    "Moderate": "rgba(210, 153, 34, 0.12)",
+    "Hard": "rgba(201, 93, 34, 0.12)",
+    "Strenuous": "rgba(207, 74, 67, 0.12)",
+}
+
+CLASS_BORDERS = {
+    "Easy": "rgba(46, 160, 67, 0.35)",
+    "Moderate": "rgba(210, 153, 34, 0.35)",
+    "Hard": "rgba(201, 93, 34, 0.35)",
+    "Strenuous": "rgba(207, 74, 67, 0.35)",
 }
 
 
 def render_header() -> None:
-    """Render top tactical HUD header with brand identity."""
+    """Render top editorial header communicating the product purpose."""
     st.markdown(
         """
-        <div class="hud-header">
-          <div>
-            <div class="brand-title">
-              <span>TERRAPFN</span>
-              <span class="brand-badge">TOUCH GRASS // WEEK 1</span>
-            </div>
-            <div class="brand-subtitle">
-              Zero-scroll outdoor trail intelligence powered by TabPFN foundation models.
-              Get your evidence-based preparation envelope and get off your screen.
-            </div>
+        <div class="editorial-header">
+          <div class="brand-kicker">
+            <span>TERRAPFN</span>
+            <span class="kicker-tag">BEST USE OF TABPFN · TOUCH GRASS</span>
+          </div>
+          <h1 class="editorial-title">Know the trail. Get outside.</h1>
+          <div class="editorial-lead">
+            TabPFN-powered trail difficulty intelligence that turns a few seconds of planning
+            into an offline field pass. Compute your biophysical envelope, pocket your phone, and hike.
           </div>
         </div>
         """,
@@ -42,106 +60,92 @@ def render_metrics_grid(
     gradient_pct: float,
     duration_str: str,
 ) -> None:
-    """Render 4-column topographic physical metric grid."""
-    cols = st.columns(4)
-    with cols[0]:
-        st.markdown(
-            f"""
-            <div class="metric-tile">
-              <div class="metric-label">DISTANCE</div>
-              <div class="metric-number">{distance_km:.2f} <span class="metric-unit">km</span></div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with cols[1]:
-        st.markdown(
-            f"""
-            <div class="metric-tile">
-              <div class="metric-label">ELEV GAIN</div>
-              <div class="metric-number">+{elevation_gain_m:.0f} <span class="metric-unit">m</span></div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with cols[2]:
-        st.markdown(
-            f"""
-            <div class="metric-tile">
-              <div class="metric-label">AVG SLOPE</div>
-              <div class="metric-number">{gradient_pct:.1f}<span class="metric-unit">%</span></div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with cols[3]:
-        st.markdown(
-            f"""
-            <div class="metric-tile">
-              <div class="metric-label">MOVING TIME</div>
-              <div class="metric-number" style="font-size: 16px; margin-top:8px;">{duration_str}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-
-def render_difficulty_distribution(prediction: DifficultyPrediction) -> None:
-    """Render calibrated multi-class difficulty posterior distribution."""
-    probs = prediction.probabilities
-    p_easy = probs.get("Easy", 0.0)
-    p_mod = probs.get("Moderate", 0.0)
-    p_hard = probs.get("Hard", 0.0)
-    p_stren = probs.get("Strenuous", 0.0)
-
-    # Meter HTML
+    """Render clean 4-column topographic specification grid."""
     st.markdown(
         f"""
-        <div class="dist-meter-container">
-          <div class="dist-bar-wrapper">
-            <div class="dist-seg dist-seg-easy" style="width: {p_easy * 100:.1f}%;" title="Easy: {p_easy * 100:.1f}%"></div>
-            <div class="dist-seg dist-seg-mod" style="width: {p_mod * 100:.1f}%;" title="Moderate: {p_mod * 100:.1f}%"></div>
-            <div class="dist-seg dist-seg-hard" style="width: {p_hard * 100:.1f}%;" title="Hard: {p_hard * 100:.1f}%"></div>
-            <div class="dist-seg dist-seg-stren" style="width: {p_stren * 100:.1f}%;" title="Strenuous: {p_stren * 100:.1f}%"></div>
+        <div class="spec-grid">
+          <div class="spec-tile">
+            <div class="spec-label">Distance</div>
+            <div class="spec-value">{distance_km:.2f} <span class="spec-unit">km</span></div>
           </div>
-          <div class="dist-labels-grid">
-            <div class="dist-chip">
-              <div class="chip-name" style="color: {CLASS_COLORS['Easy']};">Easy</div>
-              <div class="chip-pct">{p_easy * 100:.1f}%</div>
-            </div>
-            <div class="dist-chip">
-              <div class="chip-name" style="color: {CLASS_COLORS['Moderate']};">Moderate</div>
-              <div class="chip-pct">{p_mod * 100:.1f}%</div>
-            </div>
-            <div class="dist-chip">
-              <div class="chip-name" style="color: {CLASS_COLORS['Hard']};">Hard</div>
-              <div class="chip-pct">{p_hard * 100:.1f}%</div>
-            </div>
-            <div class="dist-chip">
-              <div class="chip-name" style="color: {CLASS_COLORS['Strenuous']};">Strenuous</div>
-              <div class="chip-pct">{p_stren * 100:.1f}%</div>
-            </div>
+          <div class="spec-tile">
+            <div class="spec-label">Elevation Gain</div>
+            <div class="spec-value">+{elevation_gain_m:.0f} <span class="spec-unit">m</span></div>
+          </div>
+          <div class="spec-tile">
+            <div class="spec-label">Average Slope</div>
+            <div class="spec-value">{gradient_pct:.1f}<span class="spec-unit">%</span></div>
+          </div>
+          <div class="spec-tile">
+            <div class="spec-label">Estimated Moving Time</div>
+            <div class="spec-value" style="font-size: 16px; padding-top: 4px;">{duration_str}</div>
           </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    # Statistical metadata badge
-    subcols = st.columns([2, 1, 1])
-    with subcols[0]:
-        st.caption(f"🧠 Engine: **{prediction.model_name}** ({prediction.inference_time_ms:.1f} ms)")
-    with subcols[1]:
-        st.caption(f"Entropy: **{prediction.entropy:.2f}** / 1.00")
-    with subcols[2]:
-        st.caption(f"Margin: **{prediction.confidence_margin * 100:.1f}%**")
 
+def render_difficulty_distribution(prediction: DifficultyPrediction) -> None:
+    """Render scientific posterior probability distribution with restrained tones."""
+    probs = prediction.probabilities
+    p_easy = probs.get("Easy", 0.0)
+    p_mod = probs.get("Moderate", 0.0)
+    p_hard = probs.get("Hard", 0.0)
+    p_stren = probs.get("Strenuous", 0.0)
+
+    classes_data = [
+        ("Easy", p_easy),
+        ("Moderate", p_mod),
+        ("Hard", p_hard),
+        ("Strenuous", p_stren),
+    ]
+
+    # Clean multi-row scientific probability gauge
+    rows_html = []
+    for cls_name, cls_prob in classes_data:
+        is_dom = cls_name == prediction.dominant_class_name
+        bar_fill_color = CLASS_COLORS[cls_name] if is_dom else "#30363d"
+        text_weight = "600" if is_dom else "400"
+        text_color = "#f0f6fc" if is_dom else "#8b949e"
+        pct_color = CLASS_COLORS[cls_name] if is_dom else "#8b949e"
+
+        rows_html.append(
+            f'<div class="posterior-row">'
+            f'<div class="posterior-label" style="font-weight:{text_weight}; color:{text_color};">{cls_name}</div>'
+            f'<div class="posterior-track">'
+            f'<div class="posterior-fill" style="width: {cls_prob * 100:.1f}%; background: {bar_fill_color};"></div>'
+            f'</div>'
+            f'<div class="posterior-pct" style="color: {pct_color};">{cls_prob * 100:.1f}%</div>'
+            f'</div>'
+        )
+
+    all_rows = "".join(rows_html)
+    st.markdown(f'<div class="posterior-container">{all_rows}</div>', unsafe_allow_html=True)
+
+    # Statistical metadata line
+    meta_cols = st.columns([2, 1, 1])
+    with meta_cols[0]:
+        st.caption(f"Engine: **{prediction.model_name}** ({prediction.inference_time_ms:.1f} ms)")
+    with meta_cols[1]:
+        st.caption(f"Shannon Entropy: **{prediction.entropy:.2f}** / 1.00")
+    with meta_cols[2]:
+        st.caption(f"Confidence Margin: **{prediction.confidence_margin * 100:.1f}%**")
+
+    # Borderline notification if applicable
     if prediction.is_borderline and prediction.borderline_details:
-        st.warning(f"⚠️ {prediction.borderline_details}")
+        st.markdown(
+            f"""
+            <div style="background: rgba(210, 153, 34, 0.1); border: 1px solid rgba(210, 153, 34, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #d29922; margin-top: 8px;">
+              <strong>Notice:</strong> {prediction.borderline_details} Preparation guidance is calibrated to the higher difficulty envelope.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
 
 def render_climate_and_terrain_tags(trail: Dict[str, Any]) -> None:
-    """Render environmental reanalysis badges and biome flags."""
+    """Render environmental climate tags and biome indicators without emojis."""
     summer = trail.get("summer_temp", 22.0)
     winter = trail.get("winter_temp", -2.0)
     rain = trail.get("annual_rain", 600.0)
@@ -149,11 +153,11 @@ def render_climate_and_terrain_tags(trail: Dict[str, Any]) -> None:
 
     st.markdown(
         f"""
-        <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0;">
-          <span style="background:#161f2e; border:1px solid #2b3952; padding:4px 10px; border-radius:4px; font-size:12px; font-family:monospace;">☀️ Summer: {summer:.1f}°C</span>
-          <span style="background:#161f2e; border:1px solid #2b3952; padding:4px 10px; border-radius:4px; font-size:12px; font-family:monospace;">❄️ Winter: {winter:.1f}°C</span>
-          <span style="background:#161f2e; border:1px solid #2b3952; padding:4px 10px; border-radius:4px; font-size:12px; font-family:monospace;">🌧️ Rain: {rain:.0f} mm/yr</span>
-          <span style="background:#161f2e; border:1px solid #2b3952; padding:4px 10px; border-radius:4px; font-size:12px; font-family:monospace;">🌨️ Snow: {snow:.0f} mm/yr</span>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 10px 0;">
+          <span style="background:#161b22; border:1px solid #30363d; padding:4px 10px; border-radius:4px; font-size:12px; color:#8b949e;">Summer Avg: <strong style="color:#f0f6fc;">{summer:.1f}°C</strong></span>
+          <span style="background:#161b22; border:1px solid #30363d; padding:4px 10px; border-radius:4px; font-size:12px; color:#8b949e;">Winter Avg: <strong style="color:#f0f6fc;">{winter:.1f}°C</strong></span>
+          <span style="background:#161b22; border:1px solid #30363d; padding:4px 10px; border-radius:4px; font-size:12px; color:#8b949e;">Precipitation: <strong style="color:#f0f6fc;">{rain:.0f} mm/yr</strong></span>
+          <span style="background:#161b22; border:1px solid #30363d; padding:4px 10px; border-radius:4px; font-size:12px; color:#8b949e;">Snowfall: <strong style="color:#f0f6fc;">{snow:.0f} mm/yr</strong></span>
         </div>
         """,
         unsafe_allow_html=True,
@@ -168,8 +172,11 @@ def render_climate_and_terrain_tags(trail: Dict[str, Any]) -> None:
         biomes.append("Backpacking")
 
     if biomes:
-        tags_html = " ".join([f"<span style='background:#1b241e; border:1px solid #2ea043; color:#7ee787; padding:2px 8px; border-radius:4px; font-size:11px; font-family:monospace;'>{b}</span>" for b in biomes])
-        st.markdown(f"<div style='margin-bottom:12px;'>{tags_html}</div>", unsafe_allow_html=True)
+        tags_html = " ".join([
+            f"<span style='background:rgba(46, 160, 67, 0.08); border:1px solid rgba(46, 160, 67, 0.25); color:#7ee787; padding:3px 9px; border-radius:4px; font-size:11px;'>{b}</span>"
+            for b in biomes
+        ])
+        st.markdown(f"<div style='margin-bottom:14px;'>{tags_html}</div>", unsafe_allow_html=True)
 
 
 def render_grass_pass_hero(
@@ -177,26 +184,28 @@ def render_grass_pass_hero(
     prediction: DifficultyPrediction,
     notes: Dict[str, Any],
 ) -> None:
-    """Render the full Grass Pass hero block on the dashboard."""
+    """Render the Grass Pass signature field card header."""
     trail_name = trail.get("name", "Custom Route")
     park_name = trail.get("park", "National Park")
     state_name = trail.get("state", "USA")
     route_type = str(trail.get("route_type", "Loop")).title()
     dom_class = prediction.dominant_class_name
     badge_color = CLASS_COLORS.get(dom_class, "#2ea043")
+    badge_bg = CLASS_BACKGROUNDS.get(dom_class, "rgba(46, 160, 67, 0.12)")
+    badge_border = CLASS_BORDERS.get(dom_class, "rgba(46, 160, 67, 0.35)")
 
     st.markdown(
         f"""
-        <div class="grass-pass-hero" style="border-left: 6px solid {badge_color};">
-          <div class="pass-header">
+        <div class="field-pass-card">
+          <div class="field-pass-header">
             <div>
-              <div style="font-family:monospace; font-size:11px; letter-spacing:2px; color:{badge_color}; font-weight:700;">
-                GRASS PASS // VERIFIED FIELD CARD
-              </div>
-              <div class="pass-trail-name">{trail_name}</div>
-              <div class="pass-trail-sub">{park_name} • {state_name} • {route_type}</div>
+              <div class="field-pass-kicker">TABPFN IN-CONTEXT ASSESSMENT</div>
+              <div class="field-pass-trail-name">{trail_name}</div>
+              <div class="field-pass-trail-loc">{park_name} · {state_name} · {route_type}</div>
             </div>
-            <div class="pass-badge" style="background:{badge_color};">{dom_class.upper()}</div>
+            <div class="field-pass-badge" style="background:{badge_bg}; color:{badge_color}; border-color:{badge_border};">
+              {dom_class.upper()}
+            </div>
           </div>
         </div>
         """,
@@ -205,37 +214,41 @@ def render_grass_pass_hero(
 
 
 def render_preparation_checklist(notes: Dict[str, Any]) -> None:
-    """Render the deterministic physical preparation points."""
+    """Render the deterministic physical preparation envelope as a clean field document."""
     st.markdown(
         f"""
-        <div class="tactical-card">
-          <div class="tactical-card-title">
-            <span>OFFLINE PREPARATION ENVELOPE</span>
-            <span style="color:#2ea043;">FIELD-READY</span>
+        <div class="surface-card">
+          <div class="surface-title">
+            <span>Offline Preparation Envelope</span>
+            <span style="color:#2ea043; font-size:11px; font-weight:600;">CALIBRATED GUIDANCE</span>
           </div>
-          <div class="prep-item">
-            <div class="prep-icon">💧</div>
-            <div><strong>Hydration Requirement:</strong> Carry at least <strong>{notes['minimum_water_l']} Liters</strong> (Recommended <strong>{notes['recommended_water_l']} Liters</strong> based on duration and heat load).</div>
-          </div>
-          <div class="prep-item">
-            <div class="prep-icon">🥾</div>
-            <div><strong>Footwear & Traction:</strong> {notes['footwear']}</div>
-          </div>
-          <div class="prep-item">
-            <div class="prep-icon">🥢</div>
-            <div><strong>Trekking Poles:</strong> {notes['poles_note']}</div>
-          </div>
-          <div class="prep-item">
-            <div class="prep-icon">🎒</div>
-            <div><strong>Layer System:</strong> {notes['layer_notes']}</div>
-          </div>
-          <div class="prep-item">
-            <div class="prep-icon">⏱️</div>
-            <div><strong>Turnaround Watch Alarm:</strong> {notes['turnaround_note']}</div>
-          </div>
-          <div class="prep-item">
-            <div class="prep-icon">📊</div>
-            <div><strong>Model Rationalization:</strong> {notes['model_insight']}</div>
+          <div class="field-prep-list">
+            <div class="field-prep-row">
+              <div class="field-prep-key">Hydration</div>
+              <div class="field-prep-value">
+                Carry minimum <strong>{notes['minimum_water_l']} L</strong> (Recommended: <strong>{notes['recommended_water_l']} L</strong> based on duration and metabolic thermal load).
+              </div>
+            </div>
+            <div class="field-prep-row">
+              <div class="field-prep-key">Footwear</div>
+              <div class="field-prep-value">{notes['footwear']}</div>
+            </div>
+            <div class="field-prep-row">
+              <div class="field-prep-key">Trekking Poles</div>
+              <div class="field-prep-value">{notes['poles_note']}</div>
+            </div>
+            <div class="field-prep-row">
+              <div class="field-prep-key">Pack & Layers</div>
+              <div class="field-prep-value">{notes['layer_notes']}</div>
+            </div>
+            <div class="field-prep-row">
+              <div class="field-prep-key">Turnaround</div>
+              <div class="field-prep-value">{notes['turnaround_note']}</div>
+            </div>
+            <div class="field-prep-row">
+              <div class="field-prep-key">Model Insight</div>
+              <div class="field-prep-value" style="color:#8b949e;">{notes['model_insight']}</div>
+            </div>
           </div>
         </div>
         """,

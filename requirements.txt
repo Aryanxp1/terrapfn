@@ -10,6 +10,7 @@ numpy>=1.26.0
 
 # Application & UI
 streamlit>=1.35.0
+streamlit-shadcn-ui>=1.4.0
 plotly>=5.20.0
 pydantic>=2.6.0
 requests>=2.31.0
