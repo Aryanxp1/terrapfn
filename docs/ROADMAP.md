@@ -23,8 +23,7 @@ flowchart LR
     classDef inprogress fill:#d29922,stroke:#e3b341,color:#fff;
     classDef notstarted fill:#30363d,stroke:#8b949e,color:#8b949e;
     
-    class P1,P2,P3 complete;
-    class P4 inprogress;
+    class P1,P2,P3,P4 complete;
     class P5 notstarted;
 ```
 
@@ -65,14 +64,17 @@ flowchart LR
 ---
 
 ## Phase 4 — Polish & Judge Validation
-**Status:** `IN PROGRESS`
+**Status:** `COMPLETE`
 
 - [x] **Visual Polish:** Tactical dark outdoor design system (`src/terrapfn/app/styles.py`) with monospaced HUD typography, topo surface colors, and print-friendly export styling.
 - [x] **Demo Optimization:** 4 curated ground-truth demo trails pre-configured for judges (Delicate Arch, Emerald Lake, Angels Landing, Half Dome).
 - [x] **Performance:** Fast CPU inference caching via Streamlit `@st.cache_resource` and subsampled in-context reference embeddings.
 - [x] **Test Verification:** Complete 23-test test suite passing (`pytest tests/`) covering data loading, feature engineering, models, services, and UI flows.
 - [x] **Documentation Accuracy:** Factual `README.md` presenting empirical benchmark numbers without unsupported claims.
-- [ ] **Screenshot / Demo Validation:** Capture high-resolution UI flow captures and judge walkthrough material.
+- [x] **Screenshot / Demo Validation:** 7 canonical judge screenshots captured in `docs/screenshots/`; 60-second demo walkthrough documented in `docs/DEMO_SCRIPT.md`.
+- [x] **Streamlit Deprecation Clean-up:** Migrated all `use_container_width` → `width='stretch'` (Streamlit 1.60+ compatibility, zero console warnings).
+
+**Phase 4 verified complete:** 23/23 tests passing · HTTP 200 health · Pushed to `main` branch.
 
 ---
 
